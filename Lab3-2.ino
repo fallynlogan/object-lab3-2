@@ -6,7 +6,7 @@
 // pin that the strip is connected to
 #define PIN 8
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(5, 7, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(5, PIN, NEO_GRB + NEO_KHZ800);
 
 // define button pins
 const int button1 = 7;
@@ -30,8 +30,11 @@ void setup() {
 void loop() {
   button1State = digitalRead(button1);
   button2State = digitalRead(button2);
+  
   //debugging
-  Serial.println(button1State);
+  Serial.print("button1: ");
+  Serial.print(button1State);
+  Serial.print("       button2: ");
   Serial.println(button2State);
 
   // if button 1 is pressed, turn LEDs magenta from bottom to top
